@@ -3,602 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | KanoJoes</title>
+    <title>KanoJoes • Scroll-Stopping Videos Made Simple</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-        
-        :root {
-            --primary: #c084fc;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
         
         body {
-            font-family: 'Inter', system_ui, sans-serif;
+            font-family: 'Poppins', system_ui, sans-serif;
         }
         
         .heading-font {
-            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-family: 'Space Grotesk', 'Poppins', system_ui, sans-serif;
             font-weight: 600;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #fdf4ff 0%, #f0f9ff 50%, #fefce8 100%);
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .accent-gradient {
-            background: linear-gradient(90deg, #c084fc, #f472b6);
+        .gradient-text {
+            background: linear-gradient(90deg, #f472b6, #c084fc, #60a5fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .glass-light {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(192, 132, 252, 0.2);
-        }
-
-        .section-fade {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dot {
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        .nav-active {
-            position: relative;
+        .modern-btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
-        .nav-active:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, #c084fc, #f472b6);
+        .modern-btn:hover {
+            transform: scale(1.05);
         }
 
-        .stat-number {
-            font-variant-numeric: tabular-nums;
+        .platform-pill {
+            transition: all 0.2s ease;
+        }
+        
+        .platform-pill:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .video-bg {
+            background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 40%, #db2777 100%);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 text-slate-800 overflow-x-hidden">
+<body class="bg-zinc-950 text-white overflow-x-hidden">
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-purple-200 bg-white/90 backdrop-blur-lg">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-x-3">
-                <!-- Logo -->
-                <div class="flex items-center gap-x-2">
-                    <img src="logo.png" alt="KanoJoes" class="h-10 w-auto">
-                    <div>
-                        <span class="font-semibold text-2xl tracking-tighter">KanoJoes</span>
-                    </div>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <img src="logo.png" alt="KanoJoes" class="h-16 w-auto drop-shadow-2xl">
+                <div>
+                    <span class="font-semibold text-4xl tracking-tighter">KanoJoes</span>
                 </div>
             </div>
             
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
-                <a href="#updates" class="hover:text-indigo-400 transition-colors">Updates</a>
-                <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
+                <a href="#what" class="hover:text-pink-400 transition-colors">What We Do</a>
+                <a href="#platforms" class="hover:text-pink-400 transition-colors">Platforms</a>
+                <a href="#how" class="hover:text-pink-400 transition-colors">How It Works</a>
             </div>
             
-            <div class="flex items-center gap-x-4">
-                <a href="#" 
-                   class="px-5 py-2.5 text-sm font-semibold rounded-3xl border border-purple-200 hover:bg-purple-100 transition-all flex items-center gap-x-2">
-                    <i class="fa-brands fa-linkedin text-lg"></i>
-                    <span class="hidden sm:inline">Follow</span>
-                </a>
-                <button onclick="showNotifyModal()"
-                        class="px-6 py-2.5 bg-white text-slate-950 font-semibold text-sm rounded-3xl hover:bg-white/90 transition-all flex items-center gap-x-2">
-                    <span>Get notified</span>
-                </button>
-            </div>
+            <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                    class="px-7 py-2.5 bg-white text-zinc-950 font-semibold text-sm rounded-3xl hover:bg-white/90 transition-all flex items-center gap-x-2">
+                <span>Get Started</span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="min-h-screen pt-20 flex items-center hero-gradient relative overflow-hidden">
-        <!-- Decorative elements -->
-        <div class="absolute inset-0 bg-[radial-gradient(#c084fc_0.8px,transparent_1px)] bg-[length:4px_4px] opacity-40"></div>
+    <!-- Hero with Big Logo -->
+    <div class="min-h-screen pt-20 flex items-center video-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_0.6px,transparent_1px)] bg-[length:4px_4px] opacity-10"></div>
         
-        <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/10 backdrop-blur border border-white/20 mb-8">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span class="text-sm font-medium tracking-wider">IN THE STUDIO</span>
-                </div>
-                
-                <h1 class="text-7xl md:text-8xl font-semibold tracking-tighter heading-font leading-none mb-6">
-                    Something<br>magical is<br>coming.
-                </h1>
-                
-                <p class="max-w-md mx-auto text-xl text-slate-400 mb-10">
-                    We're building the ultimate video creation platform for <span class="font-semibold text-purple-600">kanojoes.com</span>
-                </p>
-                
-                <div class="mb-8 text-sm flex justify-center">
-                    <a href="mailto:rrose@kanojoes.com" class="inline-flex items-center gap-x-2 text-purple-500 hover:text-purple-600 transition-colors">
-                        <i class="fa-solid fa-envelope mr-1"></i>
-                        <span>rrose@kanojoes.com</span>
-                    </a>
-                </div>
-                
-                <!-- Countdown -->
-                <div class="flex justify-center mb-12">
-                    <div class="glass-light px-8 py-4 rounded-3xl inline-flex items-center gap-x-8 text-center">
-                        <div>
-                            <div id="days" class="text-4xl font-semibold tabular-nums">42</div>
-                            <div class="text-xs tracking-[2px] text-slate-400 mt-1">DAYS</div>
-                        </div>
-                        <div class="w-px h-9 bg-white/20"></div>
-                        <div>
-                            <div id="hours" class="text-4xl font-semibold tabular-nums">17</div>
-                            <div class="text-xs tracking-[2px] text-slate-400 mt-1">HOURS</div>
-                        </div>
-                        <div class="w-px h-9 bg-white/20"></div>
-                        <div>
-                            <div id="minutes" class="text-4xl font-semibold tabular-nums">36</div>
-                            <div class="text-xs tracking-[2px] text-slate-400 mt-1">MINUTES</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="showNotifyModal()" 
-                            class="px-8 py-4 bg-white hover:bg-white/90 transition-all text-slate-950 font-semibold rounded-3xl flex items-center justify-center gap-x-3 group">
-                        <span>Notify me when we launch</span>
-                        <i class="fa-solid fa-arrow-right group-hover:-rotate-45 transition-transform"></i>
-                    </button>
-                    
-                    <a href="#about" 
-                       class="px-8 py-4 border border-purple-300 hover:bg-purple-100 transition-all font-medium rounded-3xl flex items-center justify-center gap-x-2">
-                        <span>Learn more</span>
-                    </a>
-                </div>
-                
-                <p class="mt-8 text-xs text-slate-400 flex items-center justify-center gap-x-2">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>Built with ❤️ and a lot of coffee</span>
-                </p>
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <!-- Extra Large Logo -->
+            <div class="flex justify-center mb-8">
+                <img src="logo.png" alt="KanoJoes Logo" class="h-48 md:h-64 w-auto drop-shadow-[0_0_60px_rgba(251,113,133,0.5)] animate-[float_3s_ease-in-out_infinite]">
             </div>
+            
+            <h1 class="text-7xl md:text-8xl font-semibold tracking-tighter heading-font leading-none mb-6">
+                Videos that<br>stop the scroll.
+            </h1>
+            
+            <p class="max-w-xl mx-auto text-2xl text-white/90 mb-10">
+                Professional short-form video content for brands that want to dominate social media.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                        class="px-10 py-4 bg-white hover:bg-white/90 transition-all text-zinc-950 font-semibold rounded-3xl text-lg flex items-center justify-center gap-x-3 group modern-btn">
+                    <span>Start Your Project</span>
+                    <i class="fa-solid fa-play group-hover:scale-125 transition-transform"></i>
+                </button>
+                
+                <a href="#how" 
+                   class="px-10 py-4 border border-white/40 hover:bg-white/10 transition-all font-medium rounded-3xl text-lg flex items-center justify-center gap-x-2">
+                    <span>See How It Works</span>
+                </a>
+            </div>
+            
+            <div class="mt-16 text-sm tracking-[2px] text-white/60">TRUSTED BY GROWING BRANDS • LAUNCHING SOON</div>
         </div>
         
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
-            <div class="flex flex-col items-center">
-                <span class="text-xs tracking-[3px] text-slate-400 mb-2">SCROLL TO EXPLORE</span>
-                <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
+            <div class="flex flex-col items-center text-white/50 text-xs tracking-[2px]">
+                SCROLL TO EXPLORE
+                <i class="fa-solid fa-chevron-down mt-2 animate-bounce"></i>
             </div>
         </div>
     </div>
 
-    <!-- About / Teaser Section -->
-    <div id="about" class="max-w-6xl mx-auto px-6 py-24 border-b border-purple-200">
-        <div class="grid md:grid-cols-12 gap-x-8 items-center">
-            <div class="md:col-span-5 mb-12 md:mb-0">
-                <div class="sticky top-24">
-                    <div class="uppercase tracking-[3px] text-xs font-semibold text-indigo-400 mb-4">THE STORY</div>
-                    <h2 class="text-5xl font-semibold tracking-tight heading-font leading-none mb-6">
-                        We're building<br>the future,<br>one pixel at a time.
-                    </h2>
-                    <p class="text-slate-400 text-lg max-w-md">
-                        Our new digital home is being crafted with intention, care, and a relentless focus on delivering an exceptional experience.
-                    </p>
-                    
-                    <div class="mt-8 flex items-center gap-x-4">
-                        <div class="flex -space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-950 overflow-hidden"><img src="https://i.pravatar.cc/32?img=1" class="w-full h-full object-cover"></div>
-                            <div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-950 overflow-hidden"><img src="https://i.pravatar.cc/32?img=2" class="w-full h-full object-cover"></div>
-                            <div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-950 overflow-hidden"><img src="https://i.pravatar.cc/32?img=3" class="w-full h-full object-cover"></div>
-                        </div>
-                        <span class="text-sm text-slate-400">Join <span class="font-semibold text-slate-800">1,284</span> others waiting</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="md:col-span-7">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="glass-light p-8 rounded-3xl group hover:border-indigo-500/30 transition-all border border-purple-200">
-                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-rocket text-indigo-400 text-3xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl mb-3">Lightning fast delivery</h3>
-                        <p class="text-slate-400">Built on modern infrastructure designed for speed and reliability from day one.</p>
-                    </div>
-                    
-                    <div class="glass-light p-8 rounded-3xl group hover:border-purple-500/30 transition-all border border-purple-200">
-                        <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-palette text-purple-400 text-3xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl mb-3">Beautiful design</h3>
-                        <p class="text-slate-400">Every detail has been obsessively refined to create something truly delightful.</p>
-                    </div>
-                    
-                    <div class="glass-light p-8 rounded-3xl group hover:border-emerald-500/30 transition-all border border-purple-200">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-users text-purple-500 text-3xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl mb-3">Made for creators</h3>
-                        <p class="text-slate-400">Your feedback has shaped every decision. This is your space as much as ours.</p>
-                    </div>
-                    
-                    <div class="glass-light p-8 rounded-3xl group hover:border-amber-500/30 transition-all border border-purple-200">
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-globe text-pink-500 text-3xl"></i>
-                        </div>
-                        <h3 class="font-semibold text-2xl mb-3">Platform ready</h3>
-                        <p class="text-slate-400">Launching worldwide with localized experiences and lightning-fast delivery everywhere.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Progress / Stats Section -->
-    <div class="max-w-6xl mx-auto px-6 py-20">
+    <!-- What We Do -->
+    <div id="what" class="max-w-6xl mx-auto px-6 py-24">
         <div class="text-center mb-16">
-            <div class="inline-block px-5 py-1.5 text-xs font-semibold tracking-[2px] bg-white/5 rounded-3xl mb-4">CURRENT STATUS</div>
-            <h2 class="text-4xl font-semibold tracking-tight">We're 87% there</h2>
-            <p class="mt-3 text-slate-400 max-w-xs mx-auto">Here's a quick look at where we stand right now</p>
+            <div class="inline-block px-5 py-1.5 text-xs font-semibold tracking-[2px] bg-white/10 rounded-3xl mb-4">FOR BRANDS THAT WANT TO WIN</div>
+            <h2 class="text-6xl font-semibold tracking-tight">We create videos<br>that get watched.</h2>
         </div>
         
-        <div class="max-w-2xl mx-auto space-y-8">
-            <!-- Progress bars -->
-            <div>
-                <div class="flex justify-between text-sm mb-2">
-                    <span class="font-medium">Creative Direction</span>
-                    <span class="font-mono text-purple-500">100%</span>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-magic text-4xl"></i>
                 </div>
-                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div class="h-full w-[100%] bg-gradient-to-r from-purple-400 to-pink-400 rounded-full transition-all duration-1000" style="width: 100%"></div>
-                </div>
+                <h3 class="font-semibold text-2xl mb-4">Creative Storytelling</h3>
+                <p class="text-white/70">Hook viewers in the first 3 seconds with scroll-stopping concepts and professional editing.</p>
             </div>
-            
-            <div>
-                <div class="flex justify-between text-sm mb-2">
-                    <span class="font-medium">Video Production</span>
-                    <span class="font-mono text-purple-500">92%</span>
+            <div class="text-center">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-bolt text-4xl"></i>
                 </div>
-                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full transition-all duration-1000" style="width: 92%"></div>
-                </div>
+                <h3 class="font-semibold text-2xl mb-4">Platform Optimized</h3>
+                <p class="text-white/70">Every video is tailored for TikTok, Instagram Reels, YouTube Shorts, and more — with perfect aspect ratios and trending sounds.</p>
             </div>
-            
-            <div>
-                <div class="flex justify-between text-sm mb-2">
-                    <span class="font-medium">Scripting &amp; Storyboarding</span>
-                    <span class="font-mono text-pink-500">78%</span>
+            <div class="text-center">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-rocket text-4xl"></i>
                 </div>
-                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-pink-400 to-rose-400 rounded-full transition-all duration-1000" style="width: 78%"></div>
-                </div>
-            </div>
-            
-            <div>
-                <div class="flex justify-between text-sm mb-2">
-                    <span class="font-medium">Final Edits &amp; Export</span>
-                    <span class="font-mono text-blue-500">65%</span>
-                </div>
-                <div class="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div class="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-1000" style="width: 65%"></div>
-                </div>
+                <h3 class="font-semibold text-2xl mb-4">Fast Turnaround</h3>
+                <p class="text-white/70">From concept to final delivery in as little as 48 hours. No waiting weeks for quality content.</p>
             </div>
         </div>
     </div>
 
-    <!-- Updates / Timeline -->
-    <div id="updates" class="bg-slate-900 border-y border-purple-200 py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="uppercase text-xs tracking-[3px] font-semibold text-indigo-400 mb-3">BEHIND THE SCENES</div>
-                <h2 class="text-5xl font-semibold tracking-tight">Recent updates</h2>
+    <!-- Platforms -->
+    <div id="platforms" class="bg-zinc-900 py-20 border-y border-white/10">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="text-sm font-semibold tracking-[3px] text-pink-400 mb-4">WE CREATE FOR</div>
+            <h2 class="text-5xl font-semibold tracking-tight mb-12">Every platform that matters</h2>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="platform-pill px-8 py-4 bg-zinc-800 rounded-3xl flex items-center gap-x-3 border border-white/10">
+                    <i class="fa-brands fa-tiktok text-3xl"></i>
+                    <span class="font-semibold text-xl">TikTok</span>
+                </div>
+                <div class="platform-pill px-8 py-4 bg-zinc-800 rounded-3xl flex items-center gap-x-3 border border-white/10">
+                    <i class="fa-brands fa-instagram text-3xl text-pink-500"></i>
+                    <span class="font-semibold text-xl">Reels</span>
+                </div>
+                <div class="platform-pill px-8 py-4 bg-zinc-800 rounded-3xl flex items-center gap-x-3 border border-white/10">
+                    <i class="fa-brands fa-youtube text-3xl text-red-500"></i>
+                    <span class="font-semibold text-xl">YouTube Shorts</span>
+                </div>
+                <div class="platform-pill px-8 py-4 bg-zinc-800 rounded-3xl flex items-center gap-x-3 border border-white/10">
+                    <i class="fa-brands fa-linkedin text-3xl text-blue-400"></i>
+                    <span class="font-semibold text-xl">LinkedIn</span>
+                </div>
             </div>
             
-            <div class="space-y-6 max-w-2xl mx-auto">
-                <div class="flex gap-6 group">
-                    <div class="shrink-0 w-9 h-9 rounded-2xl bg-white/10 flex items-center justify-center mt-1 group-hover:bg-indigo-500/20 transition-colors">
-                        <i class="fa-solid fa-check text-purple-500"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-baseline gap-x-3">
-                            <span class="font-semibold">Brand identity &amp; style guide locked in</span>
-                            <span class="text-xs px-3 py-px rounded bg-emerald-500/10 text-purple-500 font-mono">JAN 28</span>
-                        </div>
-                        <p class="text-slate-400 mt-1 text-[15px]">The visual identity and core user flows are now locked in. Next up: final content integration.</p>
-                    </div>
-                </div>
-                
-                <div class="flex gap-6 group">
-                    <div class="shrink-0 w-9 h-9 rounded-2xl bg-white/10 flex items-center justify-center mt-1 group-hover:bg-indigo-500/20 transition-colors">
-                        <i class="fa-solid fa-check text-purple-500"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-baseline gap-x-3">
-                            <span class="font-semibold">Creator dashboard prototype ready</span>
-                            <span class="text-xs px-3 py-px rounded bg-emerald-500/10 text-purple-500 font-mono">JAN 22</span>
-                        </div>
-                        <p class="text-slate-400 mt-1 text-[15px]">Fully responsive across all screen sizes with buttery-smooth interactions.</p>
-                    </div>
-                </div>
-                
-                <div class="flex gap-6 group">
-                    <div class="shrink-0 w-9 h-9 rounded-2xl bg-white/10 flex items-center justify-center mt-1 group-hover:bg-indigo-500/20 transition-colors">
-                        <i class="fa-solid fa-sync fa-spin text-pink-500"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-baseline gap-x-3">
-                            <span class="font-semibold">First sample videos in production</span>
-                            <span class="text-xs px-3 py-px rounded bg-amber-500/10 text-pink-500 font-mono">IN PROGRESS</span>
-                        </div>
-                        <p class="text-slate-400 mt-1 text-[15px]">Our team is polishing every word and image. We're aiming for launch in the next few weeks.</p>
-                    </div>
-                </div>
+            <p class="mt-10 text-white/60 max-w-md mx-auto">One concept. Multiple formats. Maximum reach.</p>
+        </div>
+    </div>
+
+    <!-- How it Works -->
+    <div id="how" class="max-w-5xl mx-auto px-6 py-24">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-semibold tracking-tight">Simple. Fast. Effective.</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 text-3xl font-semibold mb-6">1</div>
+                <h4 class="font-semibold mb-2">Discovery Call</h4>
+                <p class="text-sm text-white/70">We learn about your brand, goals, and target audience.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 text-3xl font-semibold mb-6">2</div>
+                <h4 class="font-semibold mb-2">Concept &amp; Script</h4>
+                <p class="text-sm text-white/70">We create 3–5 video concepts tailored to your brand voice.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 text-3xl font-semibold mb-6">3</div>
+                <h4 class="font-semibold mb-2">Production &amp; Edit</h4>
+                <p class="text-sm text-white/70">Professional filming, editing, captions, and trending audio.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 text-3xl font-semibold mb-6">4</div>
+                <h4 class="font-semibold mb-2">Delivery &amp; Revisions</h4>
+                <p class="text-sm text-white/70">Final files delivered + 2 rounds of revisions included.</p>
             </div>
         </div>
     </div>
 
-    <!-- Contact / CTA -->
-    <div id="contact" class="max-w-4xl mx-auto px-6 py-24 text-center">
-        <div class="max-w-md mx-auto">
-            <h2 class="text-4xl font-semibold tracking-tight mb-4">Want to be first to know?</h2>
-            <p class="text-slate-400 mb-8">Drop your email and we'll send you a personal note the moment we go live.</p>
+    <!-- Contact -->
+    <div id="contact" class="bg-zinc-900 border-t border-white/10 py-24">
+        <div class="max-w-lg mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-semibold tracking-tight">Let’s make something<br>people can’t scroll past.</h2>
+                <p class="mt-4 text-white/70">Tell us about your brand and we’ll send you a custom proposal within 24 hours.</p>
+            </div>
             
-            <form onsubmit="handleNotify(event)" class="flex flex-col sm:flex-row gap-3">
-                <input type="email" id="email-input" required
-                       class="flex-1 bg-white/5 border border-white/20 focus:border-indigo-500 transition-colors px-6 py-4 rounded-3xl text-slate-800 placeholder:text-slate-400 outline-none"
-                       placeholder="you@awesome.com">
+            <form onsubmit="handleSubmit(event)" class="space-y-5">
+                <div>
+                    <label class="text-xs tracking-widest text-white/60">YOUR NAME</label>
+                    <input type="text" required class="mt-2 w-full bg-white/5 border border-white/20 focus:border-pink-500 px-6 py-4 rounded-3xl outline-none">
+                </div>
+                <div>
+                    <label class="text-xs tracking-widest text-white/60">BUSINESS / BRAND</label>
+                    <input type="text" required class="mt-2 w-full bg-white/5 border border-white/20 focus:border-pink-500 px-6 py-4 rounded-3xl outline-none">
+                </div>
+                <div>
+                    <label class="text-xs tracking-widest text-white/60">WHAT ARE YOU LOOKING FOR?</label>
+                    <textarea rows="4" required class="mt-2 w-full bg-white/5 border border-white/20 focus:border-pink-500 px-6 py-4 rounded-3xl outline-none resize-y min-h-[120px]"></textarea>
+                </div>
+                
                 <button type="submit"
-                        class="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 hover:brightness-110 transition-all font-semibold rounded-3xl whitespace-nowrap">
-                    I'm in
+                        class="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 hover:brightness-110 transition-all font-semibold rounded-3xl text-lg mt-4 modern-btn">
+                    Send My Project Brief
                 </button>
             </form>
             
-            <p class="text-xs text-slate-400 mt-4">We respect your inbox. Unsubscribe anytime.</p>
+            <p class="text-center text-xs text-white/50 mt-8">No spam. We hate it too.</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-purple-200 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-12">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm">
-                <div class="flex items-center gap-x-6 text-slate-400">
-                    <span>© 2026 KanoJoes • Founded by Ruby Rose</span>
-                    <a href="#" class="hover:text-slate-800 transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-slate-800 transition-colors">Legal</a>
-                </div>
-                
-                <div class="flex items-center gap-x-5 text-xl text-slate-400">
-                    <a href="#" class="hover:text-slate-800 transition-colors"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="hover:text-slate-800 transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-slate-800 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="hover:text-slate-800 transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                
-                <div class="text-xs text-slate-400 font-mono">
-                    MADE WITH ❤️ FOR CREATORS • GO DADDY HOSTING READY
-                </div>
-            </div>
+    <footer class="border-t border-white/10 bg-zinc-950 py-10 text-center text-sm text-white/50">
+        <div class="max-w-7xl mx-auto px-6">
+            © 2026 KanoJoes • Scroll-Stopping Video for Modern Brands<br>
+            <span class="text-xs">Launching soon • Founded with ❤️ for creators &amp; brands</span>
         </div>
     </footer>
 
-    <!-- Notify Modal -->
-    <div id="notify-modal" onclick="hideNotifyModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur z-[100] flex items-center justify-center p-6">
-        <div onclick="event.stopImmediatePropagation()" class="glass-light max-w-md w-full rounded-3xl p-9 border border-white/20">
-            <div class="flex justify-between items-start mb-6">
-                <div>
-                    <h3 class="text-3xl font-semibold tracking-tight">Stay in the loop</h3>
-                    <p class="text-slate-400 mt-1">We'll email you the second we launch.</p>
-                </div>
-                <button onclick="hideNotifyModal()" class="text-slate-400 hover:text-slate-800 text-2xl leading-none">×</button>
-            </div>
-            
-            <form onsubmit="handleNotify(event, true)" class="space-y-5">
-                <div>
-                    <label class="block text-xs tracking-widest text-slate-400 mb-1.5">YOUR EMAIL</label>
-                    <input type="email" id="modal-email" required value=""
-                           class="w-full bg-white/5 border border-white/20 focus:border-white px-5 py-3.5 rounded-2xl outline-none text-slate-800">
-                </div>
-                
-                <div>
-                    <label class="block text-xs tracking-widest text-slate-400 mb-1.5">WHAT ARE YOU MOST EXCITED ABOUT?</label>
-                    <select class="w-full bg-white/5 border border-white/20 focus:border-white px-5 py-3.5 rounded-2xl outline-none text-slate-800">
-                        <option>Seeing the first videos</option>
-                        <option>Creator tools</option>
-                        <option>Everything!</option>
-                    </select>
-                </div>
-                
-                <button type="submit"
-                        class="w-full mt-2 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-white/90 transition-all">
-                    Count me in
-                </button>
-            </form>
-            
-            <p class="text-center text-xs text-slate-400 mt-6">No spam. Ever. Promise.</p>
-        </div>
-    </div>
-
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Tailwind script
-        function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#c084fc');
-            
-            // Optional: random subtle animation on load
-            setTimeout(() => {
-                const badge = document.querySelector('.inline-flex');
-                if (badge) badge.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            }, 800);
-        }
-        
-        // Countdown timer (set your launch date here)
-        function startCountdown() {
-            // Set your actual launch date here - currently set ~6 weeks from now
-            const launchDate = new Date('2026-06-15T00:00:00').getTime();
-            
-            const interval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
-                
-                if (distance < 0) {
-                    clearInterval(interval);
-                    document.getElementById('days').innerHTML = '00';
-                    document.getElementById('hours').innerHTML = '00';
-                    document.getElementById('minutes').innerHTML = '00';
-                    return;
-                }
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                
-                document.getElementById('days').innerHTML = String(days).padStart(2, '0');
-                document.getElementById('hours').innerHTML = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerHTML = String(minutes).padStart(2, '0');
-            }, 1000);
-        }
-        
-        // Modal functions
-        function showNotifyModal() {
-            const modal = document.getElementById('notify-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            // Focus email field
-            setTimeout(() => {
-                document.getElementById('modal-email').focus();
-            }, 300);
-        }
-        
-        function hideNotifyModal() {
-            const modal = document.getElementById('notify-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-        }
-        
-        // Form handlers
-        function handleNotify(e, fromModal = false) {
+        function handleSubmit(e) {
             e.preventDefault();
-            
-            const emailField = fromModal ? document.getElementById('modal-email') : document.getElementById('email-input');
-            const email = emailField.value.trim();
-            
-            if (!email) return;
-            
-            // Simulate API call
-            const originalText = e.target.querySelector('button').innerHTML;
             const btn = e.target.querySelector('button');
+            const original = btn.innerHTML;
+            
             btn.innerHTML = 'Sending...';
             btn.disabled = true;
             
             setTimeout(() => {
-                // Success state
-                btn.innerHTML = '✓ Thank you!';
+                btn.innerHTML = '✓ Received! We\'ll reply within 24h';
                 btn.style.background = 'linear-gradient(to right, #10b981, #34d399)';
                 
                 setTimeout(() => {
-                    if (fromModal) {
-                        hideNotifyModal();
-                    } else {
-                        // Reset form
-                        emailField.value = '';
-                        btn.innerHTML = originalText;
-                        btn.style.background = '';
-                        btn.disabled = false;
-                        
-                        // Show success toast
-                        showToast(`Thanks! We'll notify ${email} when we launch.`);
-                    }
-                }, 1400);
-            }, 850);
+                    alert("Thank you! Check your email for a confirmation and our first ideas.");
+                    e.target.reset();
+                    btn.innerHTML = original;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 2200);
+            }, 1100);
         }
         
-        function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 glass-light px-6 py-3 rounded-3xl flex items-center gap-x-3 text-sm border border-white/20 shadow-2xl z-[200]`;
-            toast.innerHTML = `
-                <i class="fa-solid fa-check-circle text-purple-500 text-lg"></i>
-                <span>${message}</span>
-            `;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.transition = 'all 0.4s ease';
-                toast.style.opacity = '0';
-                toast.style.transform = 'translate(-50%, 20px)';
-                
-                setTimeout(() => toast.remove(), 400);
-            }, 2800);
-        }
-        
-        // Keyboard escape for modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") {
-                const modal = document.getElementById('notify-modal');
-                if (!modal.classList.contains('hidden')) {
-                    hideNotifyModal();
-                }
+        // Add subtle animation to logo on load
+        window.onload = function() {
+            const logo = document.querySelector('img[alt="KanoJoes Logo"]');
+            if (logo) {
+                logo.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
             }
-        });
-        
-        // Initialize everything
-        function init() {
-            initializeTailwind();
-            startCountdown();
-            
-            // Easter egg: Konami code for fun
-            let konami = '';
-            const sequence = 'ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba';
-            document.addEventListener('keydown', function(e) {
-                konami += e.key;
-                if (konami.length > sequence.length) konami = konami.slice(1);
-                if (konami === sequence) {
-                    document.body.style.transition = 'filter 0.6s';
-                    document.body.style.filter = 'hue-rotate(180deg)';
-                    setTimeout(() => {
-                        document.body.style.filter = '';
-                    }, 1200);
-                    konami = '';
-                }
-            });
-            
-            // Make sure all links scroll smoothly
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-            
-            // Random fun fact on console for developers
-            console.log('%c[Placeholder] Nice! This is a clean GoDaddy-ready coming soon page. Customize the [brackets] and launch date.', 'color:#64748b; font-size:10px');
         }
-        
-        // Boot it up
-        window.onload = init;
     </script>
 </body>
 </html>
